@@ -13,6 +13,18 @@ Input: heights of trees below:
 Output:
 `169.375`
 
+var array = [161,182,161,154,176,170,167,171,170,174]
+var empty = [Int]()
+
+for num in array {
+if empty.contains(num) != true {
+empty.append(num)
+
+}
+}
+print(empty.reduce(0, +)/empty.count)
+
+
 
 ## Question 2
 
@@ -20,6 +32,37 @@ Determine if a String is a pangram. A pangram is a string that contains every le
 
  e.g `"The quick brown fox jumps over the lazy dog"` is a pangram
  e.g `"The quick brown fox jumped over the lazy dog"` is NOT a pangram
+
+var string = "The quick brown fox jumps over the lazy dog"
+var string2 = string.lowercased().sorted()
+
+var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+var empty = [String]()
+
+for letter in string2 where empty.contains(String(letter)) != true {
+if letter != " " {
+empty.append(String(letter))
+}
+}
+if empty == alphabet {
+print("\"\(string)\" is a pangram.")
+
+} else {
+print("\"\(string)\" is not a pangram.")
+}
+
+OR
+
+var alphabet = ("abcdefghijklmnopqrstuvwxyz")
+var letters = "The quick brown fox jumps over the lazy dog"
+var one = Set(alphabet)
+var two = Set(letters)
+if one.isSubset(of: two) {
+print("\"\(letters)\" is a pangram.")
+} else {
+print("\"\(letters)\" is not a pangram.")
+}
+
 
 
 ## Question 3
@@ -41,6 +84,22 @@ You are given an array `nums` representing the data status of the set S after th
  Output: `[2,1]`
 
 
+
+var two = [1,2,2,4]
+var testNumber = 1
+var result = [Int]()
+for num in two {
+if num == testNumber {
+testNumber += 1
+} else {
+result.append(num)
+result.append(testNumber)
+break
+
+}
+}
+print(result)
+
 ## Question 4
 
 Given the 4 arrays of Ints below, create a new array, sorted in ascending order, that contains all the values without duplicates.
@@ -51,6 +110,15 @@ let arr2 = [1, 2, 3, 4, 5, 6]
 let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
 let arr4 = [1, 3, 4, 5, 6, 7, 9]
 ```
+
+let arr1 = [2, 4, 5, 6, 8, 10, 12]
+let arr2 = [1, 2, 3, 4, 5, 6]
+let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
+let arr4 = [1, 3, 4, 5, 6, 7, 9]
+var newArr: [Int] = []
+newArr += arr1 + arr2 + arr3 + arr4
+print(Set(newArr).sorted())
+
 
 
 ## Question 5
@@ -67,6 +135,18 @@ let list1: Set = [1, 3, 4, 6, 2, 7, 9]
 let list2: Set = [3, 7, 13, 10, 4]
 ```
 
+1. [3, 4, 7]
+
+
+2. [1, 2, 6, 9, 10, 13]
+
+
+3. 
+[1, 2, 3, 4, 6, 7, 9, 10, 13]
+
+
+
+4. [1, 2, 6, 9]
 
 ## Question 6
 
@@ -87,7 +167,7 @@ print(spaceships.count)
 - 4
 - Nothing will be output
 - 0
-- This code will not compile
+- This code will not compile √√√
 - 1
 - This code will compile but crash
 
@@ -114,6 +194,6 @@ if spaceships1.isSubset(of: spaceships2) {
 
 - This code will compile but crash
 - "This is not a subset"
-- This code will not compile
+- This code will not compile √√√
 - "This is a subset"
 - Nothing will be output
